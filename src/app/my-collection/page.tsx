@@ -42,7 +42,7 @@ export default function MyPokemonPage() {
         <div className="mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <div className="flex justify-between items-start">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
             <div>
               <h1 className="text-2xl font-bold text-gray-900 mb-2">
                 My Pokemon Collection
@@ -56,10 +56,11 @@ export default function MyPokemonPage() {
             {savedPokemon.length > 0 && (
               <button
                 onClick={handleClearAll}
-                className="cursor-pointer px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-xl font-semibold transition-colors duration-200 flex items-center gap-2"
+                className="w-full sm:w-auto cursor-pointer px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-xl font-semibold transition-colors duration-200 flex items-center justify-center gap-2"
               >
                 <span>🗑️</span>
-                Release All Pokemon
+                <span className="hidden xs:inline">Release All Pokemon</span>
+                <span className="inline xs:hidden">Release All</span>
               </button>
             )}
           </div>
@@ -87,11 +88,11 @@ export default function MyPokemonPage() {
         ) : (
           /* Pokemon Grid */
           <div>
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-semibold text-gray-900">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mb-6">
+              <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">
                 Your Collection ({savedPokemon.length} Pokemon)
               </h2>
-              <p className="text-gray-500">
+              <p className="text-gray-500 text-sm sm:text-base">
                 Sorted by most recently caught
               </p>
             </div>
