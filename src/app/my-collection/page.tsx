@@ -1,25 +1,37 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePokemon } from '@/contexts/PokemonContext';
 import Navigation from '@/components/Navigation';
 import PokemonCard from '@/components/PokemonCard';
+import ConfirmationModal from '@/components/ConfirmationModal';
 
 export default function MyPokemonPage() {
   const { savedPokemon, removePokemon, clearAllPokemon } = usePokemon();
+  const [isRemoveModalOpen, setIsRemoveModalOpen] = useState(false);
+  const [isClearAllModalOpen, setIsClearAllModalOpen] = useState(false);
+  const [pokemonToRemove, setPokemonToRemove] = useState<number | null>(null);
 
   const handleRemovePokemon = (pokemonId: number) => {
-    if (confirm('Are you sure you want to release this Pokemon?')) {
-      removePokemon(pokemonId);
-    }
+    setPokemonToRemove(pokemonId);
+    setIsRemoveModalOpen(true);
   };
 
   const handleClearAll = () => {
-    if (confirm('Are you sure you want to release all your Pokemon? This action cannot be undone.')) {
-      clearAllPokemon();
+    setIsClearAllModalOpen(true);
+  };
+
+  const confirmRemovePokemon = () => {
+    if (pokemonToRemove !== null) {
+      removePokemon(pokemonToRemove);
+      setPokemonToRemove(null);
     }
   };
 
+  const confirmClearAll = () => {
+    clearAllPokemon();
+  };
 
 
   return (
@@ -44,7 +56,7 @@ export default function MyPokemonPage() {
             {savedPokemon.length > 0 && (
               <button
                 onClick={handleClearAll}
-                className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-xl font-semibold transition-colors duration-200 flex items-center gap-2"
+                className="cursor-pointer px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-xl font-semibold transition-colors duration-200 flex items-center gap-2"
               >
                 <span>🗑️</span>
                 Release All Pokemon
@@ -128,6 +140,28 @@ export default function MyPokemonPage() {
         )}
         </div>
       </div>
+      {/* Confirmation Modals */}
+      <ConfirmationModal
+        isOpen={isRemoveModalOpen}
+        onClose={() => setIsRemoveModalOpen(false)}
+        onConfirm={confirmRemovePokemon}
+        title="Release Pokemon"
+        message="Are you sure you want to release this Pokemon? This action cannot be undone."
+        confirmText="Release"
+        cancelText="Cancel"
+        confirmButtonColor="bg-red-500 hover:bg-red-600"
+      />
+      
+      <ConfirmationModal
+        isOpen={isClearAllModalOpen}
+        onClose={() => setIsClearAllModalOpen(false)}
+        onConfirm={confirmClearAll}
+        title="Release All Pokemon"
+        message="Are you sure you want to release all your Pokemon? This action cannot be undone."
+        confirmText="Release All"
+        cancelText="Cancel"
+        confirmButtonColor="bg-red-500 hover:bg-red-600"
+      />
     </div>
   );
 }
