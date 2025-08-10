@@ -94,7 +94,7 @@ function SearchFilter({ onSearch, onFilterType, searchQuery, selectedType, onCle
           className={`px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg transition-all duration-200 ${
             hasActiveFilter || searchInput.trim() === ''
               ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-              : 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl'
+              : 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl cursor-pointer'
           }`}
         >
           Search
@@ -115,7 +115,7 @@ function SearchFilter({ onSearch, onFilterType, searchQuery, selectedType, onCle
           className={`font-medium ${
             hasActiveSearch 
               ? 'text-gray-400 cursor-not-allowed' 
-              : 'text-blue-600 hover:text-blue-700'
+              : 'text-blue-600 hover:text-blue-700 cursor-pointer'
           }`}
         >
           {showTypeFilter ? 'Hide Filters' : 'Show Filters'}
@@ -129,7 +129,7 @@ function SearchFilter({ onSearch, onFilterType, searchQuery, selectedType, onCle
             <button
               key={type}
               onClick={() => handleFilterType(type)}
-              className={`px-3 py-2 rounded-xl text-sm font-medium transition-all duration-200 capitalize ${
+              className={`px-3 py-2 rounded-xl text-sm font-medium transition-all duration-200 capitalize cursor-pointer ${
                 selectedType === type
                   ? 'text-white shadow-lg transform scale-105'
                   : 'text-gray-700 bg-gray-100 hover:bg-gray-200'
@@ -154,7 +154,7 @@ function SearchFilter({ onSearch, onFilterType, searchQuery, selectedType, onCle
               🔍 Search: &quot;{searchQuery}&quot;
               <button
                 onClick={handleClearSearch}
-                className="text-blue-600 hover:text-blue-800"
+                className="text-blue-600 hover:text-blue-800 cursor-pointer"
               >
                 ×
               </button>
@@ -165,7 +165,7 @@ function SearchFilter({ onSearch, onFilterType, searchQuery, selectedType, onCle
               🏷️ Filter: {selectedType}
               <button
                 onClick={() => onFilterType('all')}
-                className="text-purple-600 hover:text-purple-800"
+                className="text-purple-800 cursor-pointer"
               >
                 ×
               </button>
@@ -174,7 +174,7 @@ function SearchFilter({ onSearch, onFilterType, searchQuery, selectedType, onCle
           {(searchQuery || selectedType !== 'all') && (
             <button
               onClick={onClearAll}
-              className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm hover:bg-gray-200"
+              className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm hover:bg-gray-200 cursor-pointer"
             >
               Clear all
             </button>

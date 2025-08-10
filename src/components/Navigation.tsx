@@ -25,7 +25,7 @@ function Navigation() {
         <div className="mx-auto">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2 cursor-pointer">
             <span className="text-2xl">⚡</span>
             <span className="text-lg sm:text-xl font-bold text-gray-900">
               <span className="hidden sm:inline">Pokedex Amalia</span>
@@ -41,7 +41,7 @@ function Navigation() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`px-2 sm:px-3 py-2 rounded-md text-xs sm:text-sm font-medium transition-colors duration-200 ${
+                  className={`px-2 sm:px-3 py-2 rounded-md text-xs sm:text-sm font-medium transition-colors duration-200 cursor-pointer ${
                     isActive
                       ? 'bg-blue-100 text-blue-700'
                       : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'

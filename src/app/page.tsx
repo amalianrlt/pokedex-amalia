@@ -99,7 +99,7 @@ export default function Home() {
             </p>
             <button 
               onClick={() => window.location.reload()}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors cursor-pointer"
             >
               Try Again
             </button>
@@ -157,14 +157,14 @@ export default function Home() {
               <button
                 onClick={handlePrevious}
                 disabled={offset === 0}
-                className="px-3 py-2 sm:px-4 sm:py-2 bg-gray-300 hover:bg-gray-400 disabled:bg-gray-200 disabled:cursor-not-allowed text-gray-700 rounded-md transition-colors duration-200 text-sm sm:text-base"
+                className="px-3 py-2 sm:px-4 sm:py-2 bg-gray-300 hover:bg-gray-400 disabled:bg-gray-200 disabled:cursor-not-allowed text-gray-700 rounded-md transition-colors duration-200 text-sm sm:text-base cursor-pointer"
               >
                 Previous
               </button>
               <button
                 onClick={handleNext}
                 disabled={!data?.next}
-                className="px-3 py-2 sm:px-4 sm:py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-200 disabled:cursor-not-allowed text-white rounded-md transition-colors duration-200 text-sm sm:text-base"
+                className="px-3 py-2 sm:px-4 sm:py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-200 disabled:cursor-not-allowed text-white rounded-md transition-colors duration-200 text-sm sm:text-base cursor-pointer"
               >
                 Next
               </button>

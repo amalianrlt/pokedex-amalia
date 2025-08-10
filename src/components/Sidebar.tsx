@@ -45,7 +45,7 @@ export default function Sidebar() {
       <div className="p-8">
         {/* Logo */}
         <div className="mb-12">
-          <Link href="/" className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center space-x-3 cursor-pointer">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
               <span className="text-white text-2xl font-bold">⚡</span>
             </div>
@@ -64,7 +64,7 @@ export default function Sidebar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`group relative flex items-center p-4 rounded-2xl transition-all duration-200 ${
+                className={`group relative flex items-center p-4 rounded-2xl transition-all duration-200 cursor-pointer ${
                   isActive
                     ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
                     : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'

@@ -115,7 +115,7 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
 
             {/* Mobile Button - Always visible at bottom */}
             <div className="md:hidden mt-4">
-              <button className="w-full bg-gray-50 hover:bg-gray-100 text-gray-700 hover:text-gray-900 font-medium py-2.5 px-4 rounded-xl transition-all duration-200 text-sm border border-gray-200 hover:border-gray-300 shadow-sm">
+              <button className="w-full cursor-pointer bg-gray-50 hover:bg-gray-100 text-gray-700 hover:text-gray-900 font-medium py-2.5 px-4 rounded-xl transition-all duration-200 text-sm border border-gray-200 hover:border-gray-300 shadow-sm">
                 View Details
               </button>
             </div>
@@ -124,7 +124,7 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
 
         {/* Desktop Overlay Button - Only on hover */}
         <div className="hidden md:flex absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">
-          <button className="bg-white/90 backdrop-blur-sm hover:bg-white text-gray-700 hover:text-gray-900 font-medium py-2.5 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 text-sm border border-white/20 pointer-events-auto">
+          <button className="bg-white/90 cursor-pointer backdrop-blur-sm text-gray-700 hover:text-gray-900 font-medium py-2.5 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 text-sm border border-white/20 pointer-events-auto">
             View Details
           </button>
         </div>

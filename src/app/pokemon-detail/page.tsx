@@ -167,7 +167,7 @@ export default function PokemonDetailPage() {
                   {/* Save/Remove Button */}
                   <button
                     onClick={handleSavePokemon}
-                    className={`w-full sm:w-auto px-4 py-2 rounded-md font-medium transition-colors duration-200 text-sm sm:text-base ${
+                    className={`w-full sm:w-auto px-4 py-2 rounded-md font-medium transition-colors duration-200 text-sm sm:text-base cursor-pointer ${
                       isSaved
                         ? 'bg-red-600 hover:bg-red-700 text-white'
                         : 'bg-green-600 hover:bg-green-700 text-white'
