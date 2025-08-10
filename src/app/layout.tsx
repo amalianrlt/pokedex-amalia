@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import QueryProvider from "@/providers/QueryProvider";
+import { PokemonProvider } from "@/contexts/PokemonContext";
+import ClientOnly from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Pokedex Amalia",
@@ -16,8 +16,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        {children}
+      <body suppressHydrationWarning={true}>
+        <ClientOnly>
+          <QueryProvider>
+            <PokemonProvider>
+              {children}
+            </PokemonProvider>
+          </QueryProvider>
+        </ClientOnly>
       </body>
     </html>
   );
