@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { Pokemon, PokemonListItem, PokemonListResponse, SimplifiedPokemon } from '@/types/pokemon';
 import { 
-  extractPokemonId,
-  getPokemonImageUrl
+  extractPokemonId
 } from './helpers';
 
 const BASE_URL = 'https://pokeapi.co/api/v2';
@@ -41,7 +40,7 @@ export const fetchPokemonListWithTypes = async (limit: number = 20, offset: numb
       return {
         id,
         name: pokemon.name,
-        image: getPokemonImageUrl(id),
+        image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
         types: []
       };
     }
@@ -116,7 +115,7 @@ export const searchPokemonByName = async (searchQuery: string, limit: number = 2
       return {
         id,
         name: pokemon.name,
-        image: getPokemonImageUrl(id),
+        image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
         types: []
       };
     }
@@ -161,7 +160,7 @@ export const filterPokemonByType = async (type: string, limit: number = 20, offs
       return {
         id,
         name: pokemon.name,
-        image: getPokemonImageUrl(id),
+        image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
         types: []
       };
     }

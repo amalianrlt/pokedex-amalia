@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { useState } from 'react';
 import { getTypeColor } from '@/lib/helpers';
 
@@ -19,7 +20,7 @@ const pokemonTypes = [
 
 
 
-export default function SearchFilter({ onSearch, onFilterType, searchQuery, selectedType, onClearAll }: SearchFilterProps) {
+function SearchFilter({ onSearch, onFilterType, searchQuery, selectedType, onClearAll }: SearchFilterProps) {
   const [showTypeFilter, setShowTypeFilter] = useState(false);
   const [searchInput, setSearchInput] = useState('');
 
@@ -183,3 +184,5 @@ export default function SearchFilter({ onSearch, onFilterType, searchQuery, sele
     </div>
   );
 }
+
+export default React.memo(SearchFilter);

@@ -37,8 +37,10 @@ export default function Home() {
   const { data, isLoading, error } = useQuery({
     queryKey: getQueryKey(),
     queryFn: getQueryFunction(),
-    staleTime: 5 * 60 * 1000, // 5 minutes
-    gcTime: 10 * 60 * 1000, // 10 minutes (formerly cacheTime)
+    staleTime: 10 * 60 * 1000, // 10 minutes
+    gcTime: 30 * 60 * 1000, // 30 minutes
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
   });
 
   const handlePrevious = () => {

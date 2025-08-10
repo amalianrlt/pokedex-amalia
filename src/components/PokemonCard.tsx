@@ -1,5 +1,6 @@
 'use client';
 
+import React, { useMemo, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { formatPokemonName, formatDate, getTypeColor } from '@/lib/helpers';
@@ -15,14 +16,14 @@ interface PokemonCardProps {
   };
 }
 
-export default function PokemonCard({ pokemon }: PokemonCardProps) {
+function PokemonCard({ pokemon }: PokemonCardProps) {
   const { isPokemonSaved, getPokemonSavedDate } = usePokemon();
   const isClient = useIsClient();
   const isChecked = isClient ? isPokemonSaved(pokemon.id) : false;
   const savedDate = isClient ? getPokemonSavedDate(pokemon.id) : null;
 
   const primaryType = pokemon.types?.[0] || 'normal';
-  const typeColor = getTypeColor(primaryType);
+  const typeColor = useMemo(() => getTypeColor(primaryType), [primaryType]);
 
 
 
@@ -81,13 +82,13 @@ export default function PokemonCard({ pokemon }: PokemonCardProps) {
               alt={pokemon.name}
               width={120}
               height={120}
-              priority={pokemon.id <= 12} // Priority for first 12 Pokemon (first page)
-              loading={pokemon.id <= 12 ? "eager" : "lazy"}
+              priority={pokemon.id <= 6} // Priority for first 6 Pokemon only
+              loading={pokemon.id <= 6 ? "eager" : "lazy"}
               className="object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
-              onError={(e) => {
+              onError={useCallback((e: React.SyntheticEvent<HTMLImageElement>) => {
                 const target = e.target as HTMLImageElement;
                 target.src = '/placeholder-pokemon.svg';
-              }}
+              }, [])}
             />
           </div>
 
@@ -143,3 +144,5 @@ export default function PokemonCard({ pokemon }: PokemonCardProps) {
     </Link>
   );
 }
+
+export default React.memo(PokemonCard);

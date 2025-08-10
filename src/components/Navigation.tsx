@@ -1,11 +1,12 @@
 'use client';
 
+import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { usePokemon } from '@/contexts/PokemonContext';
 import { useIsClient } from '@/hooks/useIsClient';
 
-export default function Navigation() {
+function Navigation() {
   const pathname = usePathname();
   const { savedPokemon } = usePokemon();
   const isClient = useIsClient();
@@ -61,3 +62,5 @@ export default function Navigation() {
     </nav>
   );
 }
+
+export default React.memo(Navigation);
