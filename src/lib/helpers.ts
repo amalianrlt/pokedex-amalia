@@ -112,14 +112,23 @@ export const formatPokemonId = (id: number): string => {
   return padNumber(id, 3);
 };
 
-// Get Pokemon image URL by ID (for list view)
+/**
+ * Get Pokemon image URL by ID (for list view)
+ * @param id - The Pokemon ID
+ * @returns The Pokemon image URL
+ */
 export const getPokemonImageUrl = (id: number): string => {
   return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 };
 
-// Get type color for styling
+/**
+ * Get type color for styling
+ * @param type - The Pokemon type
+ * @returns The color hex code for the type
+ */
 export const getTypeColor = (type: string): string => {
   const typeColors: Record<string, string> = {
+    all: '#6B7280',
     normal: '#A8A878',
     fire: '#F08030',
     water: '#6890F0',
@@ -142,3 +151,5 @@ export const getTypeColor = (type: string): string => {
   
   return typeColors[type] || '#68A090';
 };
+
+

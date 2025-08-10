@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { getTypeColor, formatPokemonName, formatDate } from '@/lib';
+import { formatPokemonName, formatDate, getTypeColor } from '@/lib/helpers';
 import { usePokemon } from '@/contexts/PokemonContext';
 import { useIsClient } from '@/hooks/useIsClient';
 
@@ -81,6 +81,8 @@ export default function PokemonCard({ pokemon }: PokemonCardProps) {
               alt={pokemon.name}
               width={120}
               height={120}
+              priority={pokemon.id <= 12} // Priority for first 12 Pokemon (first page)
+              loading={pokemon.id <= 12 ? "eager" : "lazy"}
               className="object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;

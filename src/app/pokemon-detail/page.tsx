@@ -4,7 +4,8 @@ import { useQuery } from '@tanstack/react-query';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { fetchSimplifiedPokemon, getTypeColor, formatPokemonName, formatPokemonId } from '@/lib';
+import { fetchSimplifiedPokemon } from '@/lib';
+import { getTypeColor, formatPokemonName, formatPokemonId } from '@/lib/helpers';
 import { usePokemon } from '@/contexts/PokemonContext';
 import Navigation from '@/components/Navigation';
 

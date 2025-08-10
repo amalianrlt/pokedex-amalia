@@ -13,6 +13,8 @@ This directory contains utility functions and API functions for the Pokedex appl
 - **`extractPokemonId(url: string)`** - Extracts Pokemon ID from PokeAPI URLs
 - **`formatPokemonId(id: number)`** - Formats Pokemon ID with leading zeros (e.g., 25 → "025")
 - **`padNumber(num: number, size: number)`** - Pads numbers with leading zeros
+- **`getPokemonImageUrl(id: number)`** - Gets Pokemon image URL by ID
+- **`getTypeColor(type: string)`** - Gets color hex code for Pokemon types
 
 ### Date Utilities
 - **`formatDate(dateString: string)`** - Formats dates to readable format (e.g., "Dec 25, 2023, 02:30 PM")
@@ -32,8 +34,6 @@ This directory contains utility functions and API functions for the Pokedex appl
 - **`filterPokemonByType(type, limit, offset)`** - Filters Pokemon by type
 
 ### Utilities
-- **`getPokemonImageUrl(id)`** - Gets Pokemon image URL by ID
-- **`getTypeColor(type)`** - Gets color for Pokemon types
 - **`transformPokemonData(pokemon)`** - Transforms detailed Pokemon data to simplified format
 
 ## Usage
